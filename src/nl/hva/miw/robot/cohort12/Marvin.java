@@ -7,6 +7,7 @@ import lejos.hardware.motor.*;
 import lejos.hardware.port.*;
 import lejos.robotics.Color;
 import models.LineFollower;
+import models.LineFollowerExtensive;
 import ev3.exercises.library.*;
 
 public class Marvin 
@@ -18,6 +19,9 @@ public class Marvin
     
     	LineFollower lijnvolger = new LineFollower();
     	lijnvolger.followLine();
+    	
+    	//LineFollowerExtensive lijnvolger2 = new LineFollowerExtensive();
+    	//lijnvolger2.followLineextensive();
     	
     }
 

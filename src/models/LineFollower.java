@@ -42,8 +42,8 @@ public class LineFollower {
 
 		Button.waitForAnyPress();
 
-		motorA.setPower(80);
-		motorB.setPower(80);
+		motorA.setPower(-80);
+		motorB.setPower(-80);
 
 		// drive waiting for escape key to stop driving.
 
@@ -54,11 +54,11 @@ public class LineFollower {
 			Lcd.print(7, "value=%.3f", colorValue);
 
 			if (colorValue > .130) {
-				motorA.setPower(60);
+				motorA.setPower(-60);
 				motorB.setPower(0);
 			} else {
 				motorA.setPower(0);
-				motorB.setPower(60);
+				motorB.setPower(-60);
 			}
 		}
 
