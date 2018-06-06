@@ -22,7 +22,7 @@ public class Marvin
     	//LineFollowerExtensive lijnvolger2 = new LineFollowerExtensive();
     	//lijnvolger2.followLineextensive();
     	
-    	Music muziek = new Music();
+    	Music muziek = new Music("c");
     	muziek.makeMusic();
     	
     }
