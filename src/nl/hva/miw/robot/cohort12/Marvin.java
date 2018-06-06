@@ -6,8 +6,7 @@ import lejos.hardware.Sound;
 import lejos.hardware.motor.*;
 import lejos.hardware.port.*;
 import lejos.robotics.Color;
-import models.LineFollower;
-import models.LineFollowerExtensive;
+import models.*;
 import ev3.exercises.library.*;
 
 public class Marvin 
@@ -17,11 +16,14 @@ public class Marvin
     public static void main(String[] args)
     {
     
-    	LineFollower lijnvolger = new LineFollower();
-    	lijnvolger.followLine();
+//    	LineFollower lijnvolger = new LineFollower();
+//    	lijnvolger.followLine();
     	
     	//LineFollowerExtensive lijnvolger2 = new LineFollowerExtensive();
     	//lijnvolger2.followLineextensive();
+    	
+    	Music muziek = new Music();
+    	muziek.makeMusic();
     	
     }
 
