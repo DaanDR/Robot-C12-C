@@ -22,8 +22,12 @@ public class Marvin
     	//LineFollowerExtensive lijnvolger2 = new LineFollowerExtensive();
     	//lijnvolger2.followLineextensive();
     	
-    	Music muziek = new Music("c");
-    	muziek.makeMusic();
+//    	Music muziek = new Music("c");
+//    	muziek.makeMusic();
+//    	
+    	
+    	DriveWithMusic muziekDemo = new DriveWithMusic();
+    	muziekDemo.driveWithMusic();
     	
     }
 }
