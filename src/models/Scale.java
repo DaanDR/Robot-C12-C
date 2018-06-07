@@ -38,6 +38,12 @@ public class Scale {
 		this.selectScale();
 	}
 	
+	// Constructor default c
+	public Scale () {
+		this("c");
+		
+	}
+	
 	// get selectedScaleNotes
 	public int[] getSelectedScaleNotes() {
 		return selectedScaleNotes;

@@ -26,7 +26,7 @@ public class Marvin
 //    	muziek.makeMusic();
     	
     	DriveWithMusic muziekDemo = new DriveWithMusic();
-    	muziekDemo.driveWithMusic();
+    	muziekDemo.driveWithColor();
     	
     	
     }
