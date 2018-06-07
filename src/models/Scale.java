@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Scale {
 
 	private String selectedScale;
-	private final static int SCALE_LENGTH = 7;
+	private final static int SCALE_LENGTH = 5;
 	private int[] selectedScaleNotes;
 
 	private final static int A = 440;
@@ -20,14 +20,16 @@ public class Scale {
 	private final static int F_SHARP = 739;
 	private final static int G = 783;
 	private final static int G_SHARP = 830;
+	
+	//Pentatonische toonladders
 
-	private final static int[] A_SCALE = { A, B, C_SHARP, D, E, F_SHARP, G_SHARP };
-	private final static int[] B_SCALE = { B, C_SHARP, D_SHARP, E, F_SHARP, G_SHARP, A_SHARP };
-	private final static int[] C_SCALE = { C, D, E, F, G, A, B, C };
-	private final static int[] D_SCALE = { D, E, F_SHARP, G, A, B, C_SHARP };
-	private final static int[] E_SCALE = { E, F_SHARP, G_SHARP, A, B, C_SHARP, D_SHARP };
-	private final static int[] F_SCALE = { F, G, A, A_SHARP, C, D, E };
-	private final static int[] G_SCALE = { G, A, B, C, D, E, F_SHARP };
+	private final static int[] A_SCALE = { A, C, D, E, G};
+	private final static int[] B_SCALE = { B, D, E, F_SHARP, A };
+	private final static int[] C_SCALE = { C, D_SHARP, F, G, A_SHARP };
+	private final static int[] D_SCALE = { D, F, G, A, C };
+	private final static int[] E_SCALE = { E, G, A, B, D };
+	private final static int[] F_SCALE = { F, G_SHARP, A_SHARP, C, D_SHARP };
+	private final static int[] G_SCALE = { G, A_SHARP, C, D, F };
 
 	// Constructor: vul selectedScaleNotes met de noten van gegeven toonladder
 	public Scale(String selectedScale) {
