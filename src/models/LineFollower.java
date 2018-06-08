@@ -18,15 +18,16 @@ public class LineFollower {
 
 	static private UnregulatedMotor motorA = new UnregulatedMotor(MotorPort.A);
 	static private UnregulatedMotor motorB = new UnregulatedMotor(MotorPort.B);
+
+	static private UnregulatedMotor motorC = new UnregulatedMotor(MotorPort.C);
+
 	static private ColorSensor color = new ColorSensor(SensorPort.S4);
 
 	float colorValue;
-	
-	
+
 	public LineFollower() {
 		super();
 	}
-
 
 	public void followLine() {
 		System.out.println("Line Follower\n");
@@ -41,9 +42,9 @@ public class LineFollower {
 		System.out.println("Press any key to start");
 
 		Button.waitForAnyPress();
-
-		motorA.setPower(-80);
-		motorB.setPower(-80);
+		motorA.setPower(80);
+		motorB.setPower(80);
+		motorC.setPower(-90);
 
 		// drive waiting for escape key to stop driving.
 
@@ -53,12 +54,17 @@ public class LineFollower {
 			Lcd.clear(7);
 			Lcd.print(7, "value=%.3f", colorValue);
 
-			if (colorValue > .130) {
-				motorA.setPower(-60);
-				motorB.setPower(0);
-			} else {
-				motorA.setPower(0);
-				motorB.setPower(-60);
+			if (colorValue > .1 && colorValue < .55) {
+				motorA.setPower(30);
+				motorB.setPower(30);
+			} else if (colorValue < .1) {
+				motorA.setPower(-10);
+				motorB.setPower(40);
+				motorC.setPower(-60);
+			} else if (colorValue > .55){
+				motorA.setPower(40);
+				motorB.setPower(-10);
+				motorC.setPower(60);
 			}
 		}
 

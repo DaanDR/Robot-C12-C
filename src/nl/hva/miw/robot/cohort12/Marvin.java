@@ -16,14 +16,14 @@ public class Marvin
     public static void main(String[] args)
     {
     
-//    	LineFollower lijnvolger = new LineFollower();
-//    	lijnvolger.followLine();
+    	LineFollower lijnvolger = new LineFollower();
+    	lijnvolger.followLine();
     	
     	//LineFollowerExtensive lijnvolger2 = new LineFollowerExtensive();
     	//lijnvolger2.followLineextensive();
     	
-    	Music muziek = new Music("c");
-    	muziek.makeMusic();
+//    	Music muziek = new Music("c");
+//    	muziek.makeMusic();
     	
     }
 
