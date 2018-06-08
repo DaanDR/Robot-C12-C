@@ -17,34 +17,27 @@ public class Marvin
     public static void main(String[] args)
     {
     	//lijnvolger oproepen (voor parcour)
-    	LineFollower lijnvolger = new LineFollower();
-    	lijnvolger.followLine();
-    	
+//    	LineFollower lijnvolger = new LineFollower();
+//    	lijnvolger.followLine();
+//    	
     	
 //    	Music muziek = new Music("c");
 //    	muziek.makeMusic();
 
-    	
-
-    	Scale scale = new Scale();
-    		
-    	
-<<<<<<< HEAD
-    	DriveWithMusic muziekDemo = new DriveWithMusic(scale);
-    	muziekDemo.driveWithColor();
+//   
+//    	Scale scale = new Scale();
+//    		
+//    	DriveWithMusic muziekDemo = new DriveWithMusic(scale);//
+     	muziekDemo.driveWithColor();
 
 //    	DriveWithMusic muziekDemo = new DriveWithMusic();
 //    	muziekDemo.driveWithColor();
 
-=======
-//    	DriveWithMusic muziekDemo = new DriveWithMusic();
-//    	muziekDemo.driveWithColor();
 
     	SevenNation seven = new SevenNation();
-    	
     	seven.driveSevenNation(new Scale("sevennation"));
     	
->>>>>>> driveWsound
+
     	
 
     	
