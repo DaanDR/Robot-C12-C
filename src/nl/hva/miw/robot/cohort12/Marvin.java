@@ -7,6 +7,7 @@ import lejos.hardware.motor.*;
 import lejos.hardware.port.*;
 import lejos.robotics.Color;
 import models.*;
+import BeepSequence.SevenNation;
 import ev3.exercises.library.*;
 
 public class Marvin 
@@ -28,12 +29,22 @@ public class Marvin
     	Scale scale = new Scale();
     		
     	
+<<<<<<< HEAD
     	DriveWithMusic muziekDemo = new DriveWithMusic(scale);
     	muziekDemo.driveWithColor();
 
 //    	DriveWithMusic muziekDemo = new DriveWithMusic();
 //    	muziekDemo.driveWithColor();
 
+=======
+//    	DriveWithMusic muziekDemo = new DriveWithMusic();
+//    	muziekDemo.driveWithColor();
+
+    	SevenNation seven = new SevenNation();
+    	
+    	seven.driveSevenNation(new Scale("sevennation"));
+    	
+>>>>>>> driveWsound
     	
 
     	
