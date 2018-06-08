@@ -61,7 +61,7 @@ public class DriveWithMusic {
 			case "Blue":
 				Sound.playTone(toonladderC.getSelectedScaleNotes()[1], TONE_DURATION);
 				break;
-			case "Yellow":
+			case "Black":
 				Sound.playTone(toonladderC.getSelectedScaleNotes()[2], TONE_DURATION);
 				break;
 			case "Green":
