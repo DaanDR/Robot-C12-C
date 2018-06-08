@@ -1,7 +1,5 @@
 package models;
 
-import java.util.ArrayList;
-
 import lejos.hardware.port.Port;
 import lejos.hardware.sensor.EV3ColorSensor;
 import lejos.robotics.Color;
