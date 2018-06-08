@@ -36,7 +36,12 @@ public class Marvin
 //    	DriveWithMusic muziekDemo = new DriveWithMusic();
 //    	muziekDemo.driveWithColor();
 
-    	
+
+
+//    	DriveWithMusic muziekDemo = new DriveWithMusic();
+//    	muziekDemo.driveWithColor();
+
+
     	SevenNation seven = new SevenNation();
     	
     	seven.driveSevenNation(new Scale("sevennation"));
