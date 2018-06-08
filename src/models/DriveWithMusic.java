@@ -16,10 +16,12 @@ public class DriveWithMusic {
 	static private UnregulatedMotor motorA = new UnregulatedMotor(MotorPort.A);
 	static private UnregulatedMotor motorB = new UnregulatedMotor(MotorPort.B);
 	private ColorSensor color = new ColorSensor(SensorPort.S4);
+	private Scale toonladderC;
 
 	// Constructor
-	public DriveWithMusic() {
+	public DriveWithMusic(Scale toonladderC) {
 		super();
+		this.toonladderC = toonladderC;
 	}
 
 	// Methode
@@ -36,8 +38,8 @@ public class DriveWithMusic {
 		color.setFloodLight(false);
 
 		// Drive...
-		motorA.setPower(-20);
-		motorB.setPower(-20);
+		motorA.setPower(-10);
+		motorB.setPower(-10);
 
 		// ... while waiting for escape key to stop driving
 		while (Button.ESCAPE.isUp()) {
@@ -48,29 +50,23 @@ public class DriveWithMusic {
 			
 			// speel toon per kleur
 			String kleur = ColorSensor.colorName(color.getColorID());
-			Scale toonladderC = new Scale("c");
+			
 
 			switch (kleur) {
 			case "White":
-				Sound.playTone(toonladderC.getSelectedScaleNotes()[0], 5000);
+				Sound.playTone(toonladderC.getSelectedScaleNotes()[0], 50);
 				break;
 			case "Red":
-				Sound.playTone(toonladderC.getSelectedScaleNotes()[1], 5000);
+				Sound.playTone(toonladderC.getSelectedScaleNotes()[1], 50);
 				break;
 			case "Blue":
-				Sound.playTone(toonladderC.getSelectedScaleNotes()[2], 5000);
-				break;
-			case "Green":
-				Sound.playTone(toonladderC.getSelectedScaleNotes()[3], 5000);
+				Sound.playTone(toonladderC.getSelectedScaleNotes()[2], 50);
 				break;
 			case "Yellow":
-				Sound.playTone(toonladderC.getSelectedScaleNotes()[4], 5000);
+				Sound.playTone(toonladderC.getSelectedScaleNotes()[3], 50);
 				break;
 			case "Black":
-				Sound.playTone(toonladderC.getSelectedScaleNotes()[5], 5000);
-				break;
-			case "Brown":
-				Sound.playTone(toonladderC.getSelectedScaleNotes()[6], 5000);
+				Sound.playTone(toonladderC.getSelectedScaleNotes()[4], 50);
 				break;
 			}
 
