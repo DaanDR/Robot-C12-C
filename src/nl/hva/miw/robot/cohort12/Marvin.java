@@ -29,14 +29,14 @@ public class Marvin
     	Scale scale = new Scale();
     		
     	
-<<<<<<< HEAD
+
     	DriveWithMusic muziekDemo = new DriveWithMusic(scale);
     	muziekDemo.driveWithColor();
 
 //    	DriveWithMusic muziekDemo = new DriveWithMusic();
 //    	muziekDemo.driveWithColor();
 
-=======
+
 //    	DriveWithMusic muziekDemo = new DriveWithMusic();
 //    	muziekDemo.driveWithColor();
 
@@ -44,7 +44,7 @@ public class Marvin
     	
     	seven.driveSevenNation(new Scale("sevennation"));
     	
->>>>>>> driveWsound
+
     	
 
     	
