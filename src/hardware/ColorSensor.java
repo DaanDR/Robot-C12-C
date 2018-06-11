@@ -1,6 +1,4 @@
-package Colour;
-
-import java.util.ArrayList;
+package hardware;
 
 import lejos.hardware.port.Port;
 import lejos.hardware.sensor.EV3ColorSensor;
@@ -208,3 +206,4 @@ public class ColorSensor implements ColorDetector, ColorIdentifier {
 		return "";
 	}
 }
+

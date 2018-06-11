@@ -3,12 +3,10 @@ package models;
 import lejos.hardware.Button;
 import lejos.hardware.port.MotorPort;
 import lejos.hardware.port.SensorPort;
-import lejos.robotics.Color;
-import lejos.utility.Delay;
 import lejos.hardware.Sound;
 import lejos.hardware.motor.UnregulatedMotor;
-import models.ColorSensor;
-import models.Lcd;
+import hardware.ColorSensor;
+import hardware.Lcd;
 
 public class DriveWithMusic {
 

@@ -1,4 +1,4 @@
-package models;
+package hardware;
 
 import lejos.hardware.Brick;
 import lejos.hardware.BrickFinder;
@@ -7,8 +7,8 @@ import lejos.hardware.lcd.TextLCD;;
 
 public class Lcd
 {
-    private static Brick		brick = BrickFinder.getLocal();
-    private static TextLCD		lcd = brick.getTextLCD(Font.getFont(0, 0, Font.SIZE_MEDIUM));
+    private static Brick brick = BrickFinder.getLocal();
+    private static TextLCD lcd = brick.getTextLCD(Font.getFont(0, 0, Font.SIZE_MEDIUM));
     //private static GraphicsLCD 	g = brick.getGraphicsLCD();
 
     public static final int MAXCHARS = lcd.getTextWidth();
@@ -120,3 +120,4 @@ public class Lcd
 		lcd.refresh();
 	}
 }
+
