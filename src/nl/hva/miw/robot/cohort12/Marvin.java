@@ -29,11 +29,12 @@ public class Marvin
 //    	DriveWithMusic muziekDemo = new DriveWithMusic();
 //    	muziekDemo.driveWithColor();
 
-    	SevenNation seven = new SevenNation();
-    	
-    	seven.driveSevenNation(new Scale("sevennation"));
-    	
-    	
+//    	SevenNation seven = new SevenNation();
+//    	
+//    	seven.driveSevenNation(new Scale("sevennation"));
+//    	
+    	Follow shinyKnight = new Follow();
+    	shinyKnight.findBeacon();
     	
     }
 }
