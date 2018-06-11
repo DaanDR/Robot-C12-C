@@ -14,6 +14,10 @@ public class Marvin {
 //   	
 //    DriveWithMusic muziekDemo = new DriveWithMusic(scale);
 //    muziekDemo.driveWithColor();
-
+    
+//    	
+    	Follow shinyKnight = new Follow();
+    	shinyKnight.findBeacon();
+    	
     }
 }
