@@ -13,11 +13,13 @@ import models.Lcd;
 public class DriveWithMusic {
 
 	// attributen
-	static private UnregulatedMotor motorA = new UnregulatedMotor(MotorPort.A);
-	static private UnregulatedMotor motorB = new UnregulatedMotor(MotorPort.B);
+	private static UnregulatedMotor motorA = new UnregulatedMotor(MotorPort.A);
+	private static UnregulatedMotor motorB = new UnregulatedMotor(MotorPort.B);
 	private ColorSensor color = new ColorSensor(SensorPort.S4);
 	private Scale toonladder;	
 	private final static int TONE_DURATION = 50;
+	private final static int MOTOR_SPEED = -10;
+	private final static int GREEN_LIGHT = 4;
 
 	// Constructor
 	public DriveWithMusic(Scale toonladder) {
@@ -28,21 +30,11 @@ public class DriveWithMusic {
 	// Methode colorId
 	public void driveWithColor() {
 
-		// start programma
-		Button.LEDPattern(4); // flash green led
-		Sound.beepSequenceUp(); // make sound when ready
-		System.out.println("Press any key to start");
-		Button.waitForAnyPress(); // wait for key-press
+		startProgram();
+		setUpColorSensor();
+		startDriving();
 
-		// stel kleursensor in
-		color.setColorIdMode();
-		color.setFloodLight(false);
-
-		// Start met rijden...
-		motorA.setPower(-10);
-		motorB.setPower(-10);
-
-		// ... en blijf rijden totdat de Escape knop wordt ingedrukt
+		// blijf rijden totdat de Escape knop wordt ingedrukt
 		while (Button.ESCAPE.isUp()) {
 
 			// toon de kleur die gescand wordt op het scherm
@@ -72,15 +64,36 @@ public class DriveWithMusic {
 			}
 		}
 
-		// stop motoren
+		stopDriving();		
+		freeResources();
+		Sound.beepSequence(); // klaar
+	}
+	
+	private void startProgram() {
+		Button.LEDPattern(GREEN_LIGHT);
+		Sound.beepSequenceUp(); // make een geluid wanneer het gereed is
+		System.out.println("Press any key to start");
+		Button.waitForAnyPress(); // wacht op druk op knop
+	}
+	
+	private void setUpColorSensor() {
+		color.setColorIdMode();
+		color.setFloodLight(false);
+	}
+	
+	private void startDriving() {
+		motorA.setPower(MOTOR_SPEED);
+		motorB.setPower(MOTOR_SPEED);
+	}
+	
+	private void stopDriving() {
 		motorA.stop();
 		motorB.stop();
-
-		// maak resources vrij
+	}
+	
+	private void freeResources() {
 		motorA.close();
 		motorB.close();
 		color.close();
-
-		Sound.beepSequence(); // klaar
 	}
 }
