@@ -13,24 +13,7 @@ import lejos.utility.Delay;
 
 public class InfraredBeaconFinder {
 
-//	public static void introMessage() {
-//
-//		GraphicsLCD g = LocalEV3.get().getGraphicsLCD();
-//
-////		System.out.println("IR Seeker\n");
-////
-////		Button.LEDPattern(4); // flash green led and
-////		Sound.beepSequenceUp(); // make sound when ready.
-////
-////		System.out.println("Press any key to start");
-////
-////		Button.waitForAnyPress();
-////
-////		Button.waitForAnyPress();
-//		if (Button.ESCAPE.isDown())
-//			System.exit(0);
-//		g.clear();
-//	}
+
 
 	public static void main(String[] args) {
 

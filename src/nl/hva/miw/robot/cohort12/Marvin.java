@@ -26,11 +26,11 @@ public class Marvin
 //    	muziek.makeMusic();
 
     	
-    	Scale scale = new Scale();
-    		
-    	
-    	DriveWithMusic muziekDemo = new DriveWithMusic(scale);
-    	muziekDemo.driveWithColor();
+//    	Scale scale = new Scale();
+//    		
+//    	
+//    	DriveWithMusic muziekDemo = new DriveWithMusic(scale);
+//    	muziekDemo.driveWithColor();
     	
 
     	
