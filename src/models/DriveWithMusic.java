@@ -16,7 +16,7 @@ public class DriveWithMusic {
 	private ColorSensor color = new ColorSensor(SensorPort.S4);
 	private Scale toonladder;	
 	private final static int TONE_DURATION = 50;
-	private final static int MOTOR_SPEED = -10;
+	private final static int MOTOR_SPEED = -30;
 	private final static int GREEN_LIGHT = 4;
 
 	// Constructor
@@ -44,20 +44,20 @@ public class DriveWithMusic {
 			
 			// speel toon per kleur
 			switch (kleur) {
-			case "White":
+			case "Blue":
 				Sound.playTone(toonladder.getSelectedScaleNotes()[0], TONE_DURATION);
 				break;
-			case "Blue":
+			case "Green":
 				Sound.playTone(toonladder.getSelectedScaleNotes()[1], TONE_DURATION);
 				break;
 			case "Black":
 				Sound.playTone(toonladder.getSelectedScaleNotes()[2], TONE_DURATION);
 				break;
-			case "Green":
+			case "Red":
 				Sound.playTone(toonladder.getSelectedScaleNotes()[3], TONE_DURATION);
 				break;
-			case "Red":
-				Sound.playTone(toonladder.getSelectedScaleNotes()[4], TONE_DURATION);
+			case "White":
+				Sound.playTone(toonladder.getSelectedScaleNotes()[5], TONE_DURATION);
 				break;
 			}
 		}
