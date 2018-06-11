@@ -28,6 +28,7 @@ public class LineFollower {
 
 	public void followLine() {
 		System.out.println("Line Follower\n");
+
 		
 		startProgram();
 		setUpColorSensor();
@@ -35,33 +36,52 @@ public class LineFollower {
 		
 		// blijf rijden totdat de Escape knop wordt ingedrukt
 
+
 		while (Button.ESCAPE.isUp()) {
 			colorValue = color.getRed();
-
+//			Sound.playSample(file, 100);
 			Lcd.clear(7);
 			Lcd.print(7, "value=%.3f", colorValue);
 			
 			//eerste if voor een "smooth" rechte lijn
-			if (colorValue > .1 && colorValue < .55) {
-				motorA.setPower(-30);
-				motorB.setPower(-30);
+
+			if (colorValue >= .2 && colorValue <= .45) {
+				motorA.setPower(-50);
+				motorB.setPower(-50);
 				
 				//motorC grijparm, vooralsnog voor de sier
-				motorC.setPower(-60);
+//				motorC.setPower(-60);
 			//bijsturen naar rechts als kleur waarde veranderd
-			} else if (colorValue < .1) {
-				motorA.setPower(40);
-				motorB.setPower(-40);
+			} else if (colorValue < .2 && colorValue >=.1) {
+				motorA.setPower(-20);
+				motorB.setPower(-30);
 				
-				motorC.setPower(-60);
+//				motorC.setPower(-60);
 			//bijsturen naar links als kleur waarde veranderd
-			} else if (colorValue > .55){
+			} 
+			else if (colorValue < .1) {
+				motorA.setPower(-10);
+				motorB.setPower(-30);
+				
+//				motorC.setPower(-60);
+			//bijsturen naar links als kleur waarde veranderd
+			} else if (colorValue >= .64){
 				motorA.setPower(-40);
 				motorB.setPower(40);
 				
-				motorC.setPower(60);
+//				motorC.setPower(60);
+			}else if ( colorValue >.55 && colorValue < .64) {
+				motorA.setPower(-40);
+				motorB.setPower(-10);
+				
+//				motorC.setPower(-60);
+			//bijsturen naar links als kleur waarde veranderd
+			} else if (colorValue >.45 && colorValue <=.55) {
+				motorA.setPower(-40);
+				motorB.setPower(-20);
 			}
 		}
+
 
 		stopMotor();
 		freeResources();
