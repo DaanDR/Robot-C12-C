@@ -120,7 +120,7 @@ public class Scale {
 			selectedScaleNotes = Arrays.copyOf(BUFFYSCALE, BUFFYSCALE_LENGTH);
 			break;
 		case "sevennation":
-			selectedScaleNotes = Arrays.copyOf(SEVENNATIONSCALE, BUFFYSCALE_LENGTH);
+			selectedScaleNotes = Arrays.copyOf(SEVENNATIONSCALE, SEVENNATIONSCALE_LENGTH);
 			break;
 		default:
 			selectedScaleNotes = Arrays.copyOf(C_SCALE, SCALE_LENGTH);

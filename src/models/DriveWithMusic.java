@@ -1,35 +1,28 @@
 package models;
 
 import lejos.hardware.Button;
-import lejos.hardware.port.MotorPort;
-import lejos.hardware.port.SensorPort;
 import lejos.hardware.Sound;
-import lejos.hardware.motor.UnregulatedMotor;
 import hardware.ColorSensor;
+import hardware.Engineblock;
 import hardware.Lcd;
 
-public class DriveWithMusic {
+public class DriveWithMusic extends Trick {
 
 	// attributen
-	private static UnregulatedMotor motorA = new UnregulatedMotor(MotorPort.A);
-	private static UnregulatedMotor motorB = new UnregulatedMotor(MotorPort.B);
-	private ColorSensor color = new ColorSensor(SensorPort.S4);
 	private Scale toonladder;	
 	private final static int TONE_DURATION = 50;
-	private final static int MOTOR_SPEED = -30;
-	private final static int GREEN_LIGHT = 4;
+		
 
 	// Constructor
-	public DriveWithMusic(Scale toonladder) {
-		super();
+	public DriveWithMusic(Engineblock engineblock, Scale toonladder) {
+		super(engineblock);
 		this.toonladder = toonladder;
 	}
 
 	// Methode colorId
 	public void driveWithColor() {
-
-		startProgram();
-		setUpColorSensor();
+		
+		setColorSensorID();
 		startDriving();
 
 		// blijf rijden totdat de Escape knop wordt ingedrukt
@@ -63,35 +56,6 @@ public class DriveWithMusic {
 		}
 
 		stopDriving();		
-		freeResources();
-		Sound.beepSequence(); // klaar
 	}
 	
-	private void startProgram() {
-		Button.LEDPattern(GREEN_LIGHT);
-		Sound.beepSequenceUp(); // make een geluid wanneer het gereed is
-		System.out.println("Press any key to start");
-		Button.waitForAnyPress(); // wacht op druk op knop
-	}
-	
-	private void setUpColorSensor() {
-		color.setColorIdMode();
-		color.setFloodLight(false);
-	}
-	
-	private void startDriving() {
-		motorA.setPower(MOTOR_SPEED);
-		motorB.setPower(MOTOR_SPEED);
-	}
-	
-	private void stopDriving() {
-		motorA.stop();
-		motorB.stop();
-	}
-	
-	private void freeResources() {
-		motorA.close();
-		motorB.close();
-		color.close();
-	}
 }
