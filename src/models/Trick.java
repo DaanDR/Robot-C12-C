@@ -86,8 +86,8 @@ public abstract class Trick {
 
 	// Stop driving
 	protected void stopDriving() {
-		motorA.stop();
-		motorB.stop();
+		motorA.setPower(0);
+		motorB.setPower(0);
 	}
 
 	/**
