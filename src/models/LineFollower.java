@@ -9,12 +9,12 @@ public class LineFollower extends Trick {
 	// Attributes
 	float colorValue; // Used to store red-value during while-loop
 
-	// aanmaken variabelen voor max / min snelheden
+	// create variables for max/min speeds
 	static final int MAX_SPEED = 50;
 	static final int MED_SPEED = 30;
 	static final int MIN_SPEED = 10;
 
-	// aanmaken vasta variabelen voor red sensor
+	// create variables for using the red sensor on black/white
 	static final float BLACK = 0.1f;
 	static final float WHITE = 0.70f;
 	static final float BLACK_WHITE = 0.45f;
@@ -44,35 +44,38 @@ public class LineFollower extends Trick {
 			colorValue = color.getRed();
 			Lcd.clear(4);
 			Lcd.print(4, "value=%.3f", colorValue); // Displays red-value on screen
-
-			// als de sensor 50% wit en 50% zwart ziet gaat hij rechtdoor
+			
+			// if the sensor reads 50% white and 50% black, both motors go at same speed 
 			if (colorValue >= (BLACK + .08f) && colorValue <= (BLACK_WHITE)) {
 				motorA.setPower(-MAX_SPEED);
 				motorB.setPower(-MAX_SPEED);
-				// als de sensor 25% wit ziet en 75% zwart dan gaat hij een flauwe bocht naar
-				// rechts
+			
+				// if the sensor reads 25% white and 75% black, soft turn to right
 			} else if (colorValue < (BLACK + .08f) && colorValue >= BLACK) {
 				motorA.setPower((-MED_SPEED) + 10);
 				motorB.setPower(-MED_SPEED);
-				// als de sensor 100% zwart ziet dan gaat hij met een scherpere bocht naar
-				// rechts
+				
+				// if sensor reads 100% black, sharp turn to right
 			} else if (colorValue < BLACK) {
 				motorA.setPower(-MIN_SPEED + 5);
 				motorB.setPower(-MED_SPEED);
-				// als de sensor voornamelijk wit ziet begint hij een flauwe bocht naar links
+				
+				// if the sensor reads more than 50% white, soft turn to left
 			} else if (colorValue > BLACK_WHITE && colorValue <= (BLACK_WHITE + .1f)) {
 				motorA.setPower((-MED_SPEED) - 10);
 				motorB.setPower(-MED_SPEED);
-				// iets scherpere bocht naar links
+				
+				// sharper turn to left
 			} else if (colorValue > (BLACK_WHITE + .1f) && colorValue < (BLACK_WHITE + .15f)) {
 				motorA.setPower((-MED_SPEED) - 10);
 				motorB.setPower((-MED_SPEED) + 5);
-				// nog iets scherpere bocht
+				
+				// sharper turn to left
 			} else if (colorValue >= (BLACK_WHITE + .15f) && colorValue <= WHITE) {
 				motorA.setPower((-MED_SPEED) - 10);
 				motorB.setPower((-MIN_SPEED) - 10);
-				// scherpe bocht naar links, linker wielen gaan naar achter en rechter wielen
-				// naar voren
+				
+				// if sensor reads 100% white, sharp turn to right
 			} else if (colorValue > WHITE) {
 				motorA.setPower((-MAX_SPEED) + 10);
 				motorB.setPower(MAX_SPEED - 10);
