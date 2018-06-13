@@ -2,6 +2,7 @@ package models;
 
 import hardware.ColorSensor;
 import hardware.Engineblock;
+import hardware.Lcd;
 import lejos.hardware.Button;
 import lejos.hardware.Sound;
 import lejos.hardware.motor.UnregulatedMotor;
@@ -20,8 +21,6 @@ public abstract class Trick {
 	protected final static int STANDARD_MOTOR_SPEED = -30;
 	protected final static int STANDARD_ARM_STRENGTH = -60;
 
-	
-
 	// Constructor
 	public Trick(Engineblock engineBlock) {
 		super();
@@ -39,15 +38,18 @@ public abstract class Trick {
 
 	// Start program
 	public void startProgram() {
+		Lcd.clear();
 		Button.LEDPattern(FLASH_GREEN); // flash green led and
 		Sound.beepSequenceUp(); // make sound when ready.
-		System.out.println("Press any key to start");
+		Lcd.print(1, "Press any key to start");
 		Button.waitForAnyPress(); // wait for any key press to continue
+		Lcd.clear();
 	}
 
 	// Stop program
 	public void stopProgram() {
-		System.out.println("End of Trick");
+		Lcd.clear();
+		Lcd.print(2, "- The End -");
 		Sound.beepSequence();
 	}
 
@@ -91,11 +93,11 @@ public abstract class Trick {
 	}
 
 	/**
-	 * Move arms methods using one motor (C) attached to the arms Negative integers
-	 * for moving up Positive integers for moving down
+	 * Move arms methods using one motor (C) attached to the arms
+	 * Pos/neg irrelevant, arms move relative to current position
 	 */
 
-	// Move arms up (neg) or down (pos) with given strength
+	// Move arms
 	protected void moveArms(int strength) {
 		motorC.setPower(strength);
 	}

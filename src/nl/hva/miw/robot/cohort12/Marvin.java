@@ -2,6 +2,7 @@
 package nl.hva.miw.robot.cohort12;
 
 import hardware.Engineblock;
+import hardware.Lcd;
 import lejos.hardware.Button;
 import lejos.hardware.Sound;
 import models.*;
@@ -18,14 +19,15 @@ public class Marvin {
 		
 		// Menu
 		Sound.beepSequenceUp(); // make sound when ready.
-		System.out.printf("Maak een keuze tussen:\n"
-							+ "<  Volg een lijn\n"
-							+ "[] Speel muziek\n"
-							+ ">  Val aan");
-		
-		
+		Lcd.clear();
+		Lcd.print(1, "Maak een keuze tussen:");
+		Lcd.print(2, "<  Volg een lijn");
+		Lcd.print(3, "[] Speel muziek");
+		Lcd.print(4, ">  Val aan");
+				
 		// Maak een keuze tussen de drie functies
 		Button.waitForAnyPress();
+		Lcd.clear();
 		if(Button.LEFT.isDown()) {
 			
 			/**

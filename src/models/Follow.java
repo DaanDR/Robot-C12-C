@@ -1,6 +1,7 @@
 package models;
 
 import hardware.Engineblock;
+import hardware.Lcd;
 import lejos.hardware.Button;
 import lejos.hardware.Sound;
 import lejos.hardware.sensor.SensorMode;
@@ -19,7 +20,7 @@ public class Follow extends Trick {
 	}
 
 	/**
-	 * Find beacon Finds beacon (monster), drives towards it and makes slashing
+	 * Find beacon locates the beacon (monster), drives towards it and makes slashing
 	 * motion with arms Robot wins when five executive arm slashes have been
 	 * executed Count to five starts again if beacon moves and has to be relocated
 	 * If slashing starts and beacon moves closer, robot will back away
@@ -28,14 +29,14 @@ public class Follow extends Trick {
 	public void findBeacon() {
 
 		// Commentaar op scherm
-		System.out.println("Monster slachter\n");
-		startProgram();
-
+		Lcd.print(2, "Monster Slayer");
+		
 		// counter voor wanneer robot gewonnen
 		int victory = 0;
 
 		while (Button.ESCAPE.isUp() && victory < 5) {
 
+			Lcd.print(4, "Strike: %d", victory);
 			// bepaal positie tov sensor
 			seek.fetchSample(sample, 0); // sample == co�rdinaten van beacon??
 			int direction = (int) sample[0];
@@ -44,7 +45,6 @@ public class Follow extends Trick {
 			System.out.println("Distance: " + distance); // zorg dat distance tot aan de beacon op scherm verschijnt
 
 			// find and slash until victory
-
 			if (direction >= 5) { // als de richting boven nul is gaat de auto naar links
 				victory = 0;
 				motorA.setPower(0);
@@ -73,6 +73,7 @@ public class Follow extends Trick {
 		}
 
 		// roep methodes aan Dans + muziek
+		Lcd.print(5, "!! -VICTORY- !!");
 		victoryDance();
 		victoryMusic();
 

@@ -19,9 +19,17 @@ public class DriveWithMusic extends Trick {
 		super(engineblock);
 		this.toonladder = toonladder;
 	}
+	
+	/**
+	 * DriveWithColor method is designed to drive over a strip of colors
+	 * playing a different tone for each color. Tones are pulses to simulate a continuing tone.
+	 * Displays the name of the color while driving over each one.
+	 * Compose your own music by creating colored strips of different length.
+	 */
 
 	// Methode colorId
 	public void driveWithColor() {
+		Lcd.print(1, "Drive with music");
 		
 		setColorSensorID();
 		startDriving();
