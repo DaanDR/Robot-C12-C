@@ -14,6 +14,7 @@ public class Marvin {
 		// Engage motors and sensors
 		Engineblock engineblock1 = new Engineblock();
 		engineblock1.startEngines();
+
 		
 		// Menu
 		Sound.beepSequenceUp(); // make sound when ready.
@@ -60,6 +61,7 @@ public class Marvin {
 			shinyKnight.findBeacon();
 			shinyKnight.stopProgram();	
 		}
+
 
 		// Close motors and sensors
 		engineblock1.closeEngines();
