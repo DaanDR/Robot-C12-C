@@ -11,6 +11,7 @@ public class DriveWithMusic extends Trick {
 	// attributen
 	private Scale toonladder;	
 	private final static int TONE_DURATION = 50;
+	private final static int TONE_VOLUME = 60;
 		
 
 	// Constructor
@@ -38,19 +39,19 @@ public class DriveWithMusic extends Trick {
 			// speel toon per kleur
 			switch (kleur) {
 			case "Blue":
-				Sound.playTone(toonladder.getSelectedScaleNotes()[0], TONE_DURATION);
+				Sound.playTone(toonladder.getSelectedScaleNotes()[0], TONE_DURATION, TONE_VOLUME);
 				break;
 			case "Green":
-				Sound.playTone(toonladder.getSelectedScaleNotes()[1], TONE_DURATION);
+				Sound.playTone(toonladder.getSelectedScaleNotes()[1], TONE_DURATION, TONE_VOLUME);
 				break;
 			case "Black":
-				Sound.playTone(toonladder.getSelectedScaleNotes()[2], TONE_DURATION);
+				Sound.playTone(toonladder.getSelectedScaleNotes()[2], TONE_DURATION, TONE_VOLUME);
 				break;
 			case "Red":
-				Sound.playTone(toonladder.getSelectedScaleNotes()[3], TONE_DURATION);
+				Sound.playTone(toonladder.getSelectedScaleNotes()[3], TONE_DURATION, TONE_VOLUME);
 				break;
 			case "White":
-				Sound.playTone(toonladder.getSelectedScaleNotes()[5], TONE_DURATION);
+				Sound.playTone(toonladder.getSelectedScaleNotes()[4], TONE_DURATION, TONE_VOLUME);
 				break;
 			}
 		}

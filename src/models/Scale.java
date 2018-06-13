@@ -6,9 +6,8 @@ public class Scale {
 
 	private String selectedScale;
 	private final static int SCALE_LENGTH = 7;
-	private final static int PENTASCALE_LENGTH = 5;
-	private final static int BUFFYSCALE_LENGTH = 6;
-	private final static int SEVENNATIONSCALE_LENGTH = 6;
+	private final static int PENTASCALE_LENGTH = 5;	
+	private final static int SEVENNATIONSCALE_LENGTH = 5;
 	private int[] selectedScaleNotes;
 
 	private final static int A = 440;
@@ -46,10 +45,8 @@ public class Scale {
 	private final static int[] G_PENTASCALE = { G, A_SHARP, C, D, F };
 	
 	// Custom
-	// Buffy Scale FKEY _ D-E-Fis-G
-	private final static int[] BUFFYSCALE = { D, E, F_SHARP, G, A_HOOG, B_HOOG };
-	// SevenNation scale FKEY _ B-C-D-E-Fis-G
-	private final static int[] SEVENNATIONSCALE = { B, C, D, E, F_SHARP, G };
+	// SevenNation scale FKEY _ B-C-D-E-G
+	private final static int[] SEVENNATIONSCALE = { B, C, D, E, G };
 	
 
 	// Constructor: vul selectedScaleNotes met de noten van gegeven toonladder
@@ -115,9 +112,6 @@ public class Scale {
 			break;
 		case "gp":
 			selectedScaleNotes = Arrays.copyOf(G_PENTASCALE, PENTASCALE_LENGTH);
-			break;
-		case "buffy":
-			selectedScaleNotes = Arrays.copyOf(BUFFYSCALE, BUFFYSCALE_LENGTH);
 			break;
 		case "sevennation":
 			selectedScaleNotes = Arrays.copyOf(SEVENNATIONSCALE, SEVENNATIONSCALE_LENGTH);
