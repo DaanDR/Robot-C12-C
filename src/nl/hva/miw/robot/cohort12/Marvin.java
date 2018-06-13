@@ -49,7 +49,7 @@ public class Marvin {
 		Follow shinyKnight = new Follow(engineblock1);
 		shinyKnight.startProgram();
 		shinyKnight.findBeacon();
-		shinyKnight.stopProgram();
+		//shinyKnight.stopProgram();
 
 		// Close motors and sensors
 		engineblock1.closeEngines();

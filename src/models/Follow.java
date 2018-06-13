@@ -10,22 +10,21 @@ public class Follow extends Trick {
 
 	SensorMode seek = ir.getSeekMode(); // ??
 	float[] sample = new float[seek.sampleSize()]; // ??
-	
+
 	// Constructor
 	public Follow(Engineblock engineblock) {
 		super(engineblock);
-//		this.seek = ir.getSeekMode();
-//		this.sample = new float[seek.sampleSize()];
+		// this.seek = ir.getSeekMode();
+		// this.sample = new float[seek.sampleSize()];
 	}
 
 	/**
-	 * Find beacon
-	 * Finds beacon (monster), drives towards it and makes slashing motion with arms
-	 * Robot wins when five executive arm slashes have been executed
-	 * Count to five starts again if beacon moves and has to be relocated
+	 * Find beacon Finds beacon (monster), drives towards it and makes slashing
+	 * motion with arms Robot wins when five executive arm slashes have been
+	 * executed Count to five starts again if beacon moves and has to be relocated
 	 * If slashing starts and beacon moves closer, robot will back away
 	 */
-	
+
 	public void findBeacon() {
 
 		// Commentaar op scherm
@@ -38,7 +37,7 @@ public class Follow extends Trick {
 		while (Button.ESCAPE.isUp() && victory < 5) {
 
 			// bepaal positie tov sensor
-			seek.fetchSample(sample, 0); // sample == coördinaten van beacon??
+			seek.fetchSample(sample, 0); // sample == coï¿½rdinaten van beacon??
 			int direction = (int) sample[0];
 			System.out.println("Direction: " + direction); // zorg dat richting op scherm verschijnt
 			int distance = (int) sample[1];
@@ -66,97 +65,61 @@ public class Follow extends Trick {
 				motorC.setPower(70); // haal arm omhoog
 				Delay.msDelay(500);
 				victory++;
-			} else if (distance <= 30) { // als té dichtbij: back away slowly
+			} else if (distance <= 30) { // als tï¿½ dichtbij: back away slowly
 				victory = 0;
 				motorA.setPower(40);
 				motorB.setPower(40);
 			}
 		}
 
+		// roep methodes aan Dans + muziek
 		victoryDance();
-		
+		victoryMusic();
+
 	}
 
-	
-	
-	// Victory dance
-	protected void victoryDance() {
+	public void victoryDance() {
 		Delay.msDelay(1000);
 		Button.LEDPattern(7); // fast flash green led and
 		motorA.setPower(80);
 		motorB.setPower(80);
-		Delay.msDelay(400);
+		Delay.msDelay(600);
 		motorA.setPower(0);
 		motorB.setPower(0);
-		Sound.beepSequenceUp(); // make sound three times
-		Sound.beepSequenceUp();
-		Sound.beepSequenceUp();
-		motorA.setPower(-80);
-		motorB.setPower(60);
-		Delay.msDelay(3000);
+		motorA.setPower(-90);
+		motorB.setPower(90);
+		Delay.msDelay(2500);
 		motorA.setPower(0);
 		motorB.setPower(0);
+
+	}
+
+	// methode met victory muziek
+	public void victoryMusic() {
+		// zwaait 1 keer met arm
+		motorC.setPower(70);
 		Delay.msDelay(500);
-		Sound.playTone(392, 350);
+		motorC.setPower(-70);
+		// speel muziek
+		Delay.msDelay(1000);
+		Sound.playTone(784, 100);
 		Delay.msDelay(100);
-		Sound.playTone(392, 350);
+		Sound.playTone(784, 50);
 		Delay.msDelay(100);
-		Sound.playTone(392, 350);
+		Sound.playTone(784, 50);
 		Delay.msDelay(100);
-		Sound.playTone(311, 250);
+		Sound.playTone(784, 100);
 		Delay.msDelay(100);
-		Sound.playTone(466, 25);
+
+		Sound.playTone(880, 100);
 		Delay.msDelay(100);
-//		Sound.playTone(392, 350);
-//		Delay.msDelay(100);
-//		Sound.playTone(311, 250);
-//		Delay.msDelay(100);
-//		Sound.playTone(466, 25);
-//		Delay.msDelay(100);
-//		Sound.playTone(392, 700);
-//		Delay.msDelay(100);
-//		Sound.playTone(587, 350);
-//		Delay.msDelay(100);
-//		Sound.playTone(587, 350);
-//		Delay.msDelay(100);
-//		Sound.playTone(587, 350);
-//		Delay.msDelay(100);
-//		Sound.playTone(622, 250);
-//		Delay.msDelay(100);
-//		Sound.playTone(466, 25);
-//		Delay.msDelay(100);
-//		Sound.playTone(369, 350);
-//		Delay.msDelay(100);
-//		Sound.playTone(311, 250);
-//		Delay.msDelay(100);
-//		Sound.playTone(466, 25);
-//		Delay.msDelay(100);
-//		Sound.playTone(392, 700);
-//		Delay.msDelay(100);
-//		Sound.playTone(784, 350);
-//		Delay.msDelay(100);
-//		Sound.playTone(392, 250);
-//		Delay.msDelay(100);
-//		Sound.playTone(392, 25);
-//		Delay.msDelay(100);
-//		Sound.playTone(784, 350);
-//		Delay.msDelay(100);
-//		Sound.playTone(739, 250);
-//		Delay.msDelay(100);
-//		Sound.playTone(698, 25);
-//		Delay.msDelay(100);
-//		Sound.playTone(659, 25);
-//		Delay.msDelay(100);
-//		Sound.playTone(622, 25);
-//		Delay.msDelay(100);
-//		Sound.playTone(659, 50);
-//		Delay.msDelay(400);
-//		Sound.playTone(415, 25);
-//		Delay.msDelay(200);
-//		Sound.playTone(554, 350);
-//		Delay.msDelay(100);
-//		Sound.playTone(523, 250);
-		Delay.msDelay(1500);
+		Sound.playTone(784, 100);
+		Delay.msDelay(100);
+		Sound.playTone(880, 100);
+		Delay.msDelay(100);
+
+		Sound.playTone(988, 800);
+		Delay.msDelay(2000);
 	}
 
 }
