@@ -10,6 +10,7 @@ public class Scale {
 	private final static int SEVENNATIONSCALE_LENGTH = 5;
 	private int[] selectedScaleNotes;
 
+	// Tones
 	private final static int A = 440;
 	private final static int A_SHARP = 466;
 	private final static int B = 494;
@@ -25,7 +26,7 @@ public class Scale {
 	private final static int A_HOOG = 880;
 	private final static int B_HOOG = 988;
 	
-	// Toonladders
+	// Scales
 	private final static int[] C_SCALE = { C, D, E, F, G, A_HOOG, B_HOOG };
 	private final static int[] D_SCALE = { D, E, F_SHARP, G, A, B, C_SHARP };
 	private final static int[] E_SCALE = { E, F_SHARP, G_SHARP, A, B, C_SHARP, D_SHARP };
@@ -34,8 +35,7 @@ public class Scale {
 	private final static int[] A_SCALE = { A, B, C_SHARP, D, E, F_SHARP, G_SHARP};
 	private final static int[] B_SCALE = { B, C_SHARP, D_SHARP, E, F_SHARP, G_SHARP, A_SHARP };
 	
-	//Pentatonische toonladders
-
+	// Pentatonic scales
 	private final static int[] A_PENTASCALE = { A, C, D, E, G};
 	private final static int[] B_PENTASCALE = { B, D, E, F_SHARP, A };
 	private final static int[] C_PENTASCALE = { C, D_SHARP, F, G, A_SHARP };
@@ -44,12 +44,12 @@ public class Scale {
 	private final static int[] F_PENTASCALE = { F, G_SHARP, A_SHARP, C, D_SHARP };
 	private final static int[] G_PENTASCALE = { G, A_SHARP, C, D, F };
 	
-	// Custom
+	// Custom scales
 	// SevenNation scale FKEY _ B-C-D-E-G
 	private final static int[] SEVENNATIONSCALE = { B, C, D, E, G };
 	
 
-	// Constructor: vul selectedScaleNotes met de noten van gegeven toonladder
+	// Constructor: fill 'selectedScaleNotes' with tones of given scale
 	public Scale(String selectedScale) {
 		super();
 		this.selectedScale = selectedScale;
@@ -67,7 +67,7 @@ public class Scale {
 		return selectedScaleNotes;
 	}
 
-	// Methode: kopieert de juiste scale naar de selectedScaleNotes
+	// Methode: copy chosen scale to 'selectedScaleNotes'
 	private void selectScale() {
 
 		switch (this.selectedScale) {

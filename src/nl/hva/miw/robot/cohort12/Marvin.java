@@ -25,14 +25,13 @@ public class Marvin {
 		Lcd.print(3, "[] Speel muziek");
 		Lcd.print(4, ">  Val aan");
 				
-		// Maak een keuze tussen de drie functies
+		// Choose one of three functions
 		Button.waitForAnyPress();
 		Lcd.clear();
 		if(Button.LEFT.isDown()) {
 			
 			/**
-			 * Task # 1: Follow line Robot follows a black on white line parcours
-			 * Stand-alone program: engages and closes engines
+			 * Task # 1: Follow line - Robot follows a black on white line trail
 			 */
 			
 			LineFollower lijnvolger = new LineFollower(engineblock1);
@@ -43,10 +42,8 @@ public class Marvin {
 		} else if(Button.ENTER.isDown()) {
 			
 			/**
-			 * Task # 2: Drive With Music Robot drives over strip of colors, playing a
-			 * specific note for each color Task # 3: Slay Monster Robot finds and follows
-			 * beacon, moves arm when close enough If arm is moved 5 times, robot wins and
-			 * does victory dance Both tasks use the same engineblock.
+			 * Task # 2: Drive With Music - Robot drives over strip of colors, playing a
+			 * specific note for each color.
 			 */
 			
 			DriveWithMusic seven = new DriveWithMusic(engineblock1, new Scale("sevennation"));
@@ -56,8 +53,12 @@ public class Marvin {
 			
 		} else if(Button.RIGHT.isDown()) {
 			
-			// Task # 3: Slay monster
-			
+			/**
+			 * Task # 3: Slay Monster - Robot finds and follows beacon and
+			 * moves arm when close enough. If arm is moved 5 times, robot wins and
+			 * does victory dance.
+			*/
+			 
 			Follow shinyKnight = new Follow(engineblock1);
 			shinyKnight.startProgram();
 			shinyKnight.findBeacon();

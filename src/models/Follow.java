@@ -9,14 +9,12 @@ import lejos.utility.Delay;
 
 public class Follow extends Trick {
 
-	SensorMode seek = ir.getSeekMode(); // ??
-	float[] sample = new float[seek.sampleSize()]; // ??
+	SensorMode seek = ir.getSeekMode(); // Make the ir sensor seek
+	float[] sample = new float[seek.sampleSize()]; // create float[] to store beacon coordinates in sample
 
 	// Constructor
 	public Follow(Engineblock engineblock) {
 		super(engineblock);
-		// this.seek = ir.getSeekMode();
-		// this.sample = new float[seek.sampleSize()];
 	}
 
 	/**
@@ -28,60 +26,63 @@ public class Follow extends Trick {
 
 	public void findBeacon() {
 
-		// Commentaar op scherm
-		Lcd.print(2, "Monster Slayer");
+		Lcd.print(1, "Monster Slayer");
 		
-		// counter voor wanneer robot gewonnen
-		int victory = 0;
+		int victory = 0; // counter until robot has won
+		final int MAX_HITS = 5; // Number of hits needed for robot to win
+		final int START_OVER = 0; // Number of hits remaining when starting over
 
-		while (Button.ESCAPE.isUp() && victory < 5) {
-
+		while (Button.ESCAPE.isUp() && victory < MAX_HITS) {
+			Lcd.clear(4);
 			Lcd.print(4, "Strike: %d", victory);
-			// bepaal positie tov sensor
-			seek.fetchSample(sample, 0); // sample == co�rdinaten van beacon??
+			// determine position relative to beacon
+			seek.fetchSample(sample, 0); // sample == coordinates of beacon
 			int direction = (int) sample[0];
-			System.out.println("Direction: " + direction); // zorg dat richting op scherm verschijnt
+			Lcd.clear(2);
+			Lcd.print(2, "Direction: " + direction); // make direction appear on screen
 			int distance = (int) sample[1];
-			System.out.println("Distance: " + distance); // zorg dat distance tot aan de beacon op scherm verschijnt
-
+			Lcd.clear(3);
+			Lcd.print(3, "Distance: " + distance); // make distance to beacon appear on screen
+			
 			// find and slash until victory
-			if (direction >= 5) { // als de richting boven nul is gaat de auto naar links
-				victory = 0;
+			if (direction >= 5) { // if direction > 0 robot turns left
+				victory = START_OVER;
 				motorA.setPower(0);
 				motorB.setPower(-60);
-			} else if (direction <= -5) { // onder nul, auto gaat rechts
-				victory = 0;
+			} else if (direction <= -5) { // if direction < 0 robot turns right
+				victory = START_OVER;
 				motorA.setPower(-60);
 				motorB.setPower(0);
-			} else if (distance > 45) { // als richting bepaald is ga naar voren
-				victory = 0;
+			} else if (distance > 45) { // when direction is set go forward
+				victory = START_OVER;
 				motorA.setPower(-60);
 				motorB.setPower(-60);
-			} else if (distance <= 45 && distance > 30) { // als je dichtbij genoeg bent:
+			} else if (distance <= 45 && distance > 30) { // when close enough:
 				motorA.setPower(0);
-				motorB.setPower(0); // stop met rijden
-				motorC.setPower(-70); // hak in op monster beacon
+				motorB.setPower(0); // stop driving
+				motorC.setPower(-70); // slash monster beacon
 				Delay.msDelay(500);
-				motorC.setPower(70); // haal arm omhoog
+				motorC.setPower(70); // pull arms up
 				Delay.msDelay(500);
 				victory++;
-			} else if (distance <= 30) { // als t� dichtbij: back away slowly
-				victory = 0;
+			} else if (distance <= 30) { // when too close: back away slowly
+				victory = START_OVER;
 				motorA.setPower(40);
 				motorB.setPower(40);
 			}
 		}
 
-		// roep methodes aan Dans + muziek
+		// Do victory dance + play victory music
 		Lcd.print(5, "!! -VICTORY- !!");
 		victoryDance();
 		victoryMusic();
 
 	}
 
+	// Method do victory dance
 	public void victoryDance() {
 		Delay.msDelay(1000);
-		Button.LEDPattern(7); // fast flash green led and
+		Button.LEDPattern(7); // fast flash green led
 		motorA.setPower(80);
 		motorB.setPower(80);
 		Delay.msDelay(600);
@@ -95,13 +96,13 @@ public class Follow extends Trick {
 
 	}
 
-	// methode met victory muziek
+	// Method with victory music
 	public void victoryMusic() {
-		// zwaait 1 keer met arm
+		// wave arm once
 		motorC.setPower(70);
 		Delay.msDelay(500);
 		motorC.setPower(-70);
-		// speel muziek
+		// play music
 		Delay.msDelay(1000);
 		Sound.playTone(784, 100);
 		Delay.msDelay(100);

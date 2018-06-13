@@ -8,7 +8,7 @@ import hardware.Lcd;
 
 public class DriveWithMusic extends Trick {
 
-	// attributen
+	// Attributes
 	private Scale toonladder;	
 	private final static int TONE_DURATION = 50;
 	private final static int TONE_VOLUME = 60;
@@ -27,24 +27,24 @@ public class DriveWithMusic extends Trick {
 	 * Compose your own music by creating colored strips of different length.
 	 */
 
-	// Methode colorId
+	// Method colorId
 	public void driveWithColor() {
 		Lcd.print(1, "Drive with music");
 		
 		setColorSensorID();
 		startDriving();
 
-		// blijf rijden totdat de Escape knop wordt ingedrukt
+		// keep driving until [escape] is pressed
 		while (Button.ESCAPE.isUp()) {
 
-			// toon de kleur die gescand wordt op het scherm
+			// show color being scanned on screen
 			Lcd.clear(4);
 			Lcd.print(4, "id=%s", ColorSensor.colorName(color.getColorID()));
 			
-			// scan de kleur en zet deze in String kleur
+			// scan color and put it in String kleur
 			String kleur = ColorSensor.colorName(color.getColorID());
 			
-			// speel toon per kleur
+			// play tone for each color
 			switch (kleur) {
 			case "Blue":
 				Sound.playTone(toonladder.getSelectedScaleNotes()[0], TONE_DURATION, TONE_VOLUME);

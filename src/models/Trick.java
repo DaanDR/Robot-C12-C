@@ -11,9 +11,9 @@ import lejos.robotics.Color;
 
 public abstract class Trick {
 
-	UnregulatedMotor motorA; // motor voor linker(?) wiel
-	UnregulatedMotor motorB; // motor voor rechter(?) wiel
-	UnregulatedMotor motorC; // motor voor grijparmen
+	UnregulatedMotor motorA; // motor for driving
+	UnregulatedMotor motorB; // motor for driving
+	UnregulatedMotor motorC; // motor for moving arms
 	ColorSensor color; // color sensor
 	EV3IRSensor ir;
 
@@ -57,7 +57,7 @@ public abstract class Trick {
 	 * Color Sensor methods
 	 */
 
-	// Set color sensor to RED sensor function and sets floodlight to red.
+	// Set color sensor to RED sensor function and set floodlight to red.
 	protected void setColorSensorRed() {
 		color.setRedMode();
 		color.setFloodLight(Color.RED);
@@ -80,7 +80,7 @@ public abstract class Trick {
 		motorB.setPower(speed);
 	}
 
-	// Start driving with standard speed, negative ints for driving forward
+	// Start driving with standard speed, negative integers for driving forward
 	protected void startDriving() {
 		motorA.setPower(STANDARD_MOTOR_SPEED);
 		motorB.setPower(STANDARD_MOTOR_SPEED);

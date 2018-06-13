@@ -7,9 +7,9 @@ import lejos.hardware.sensor.EV3IRSensor;
 
 public class Engineblock {
 
-	UnregulatedMotor motorA; // motor voor linker(?) wiel
-	UnregulatedMotor motorB; // motor voor rechter(?) wiel
-	UnregulatedMotor motorC; // motor voor grijparmen
+	UnregulatedMotor motorA; // motor for driving
+	UnregulatedMotor motorB; // motor for driving
+	UnregulatedMotor motorC; // motor for arms
 	ColorSensor color; // color sensor
 	EV3IRSensor ir; // infrared sensor
 	
@@ -17,6 +17,7 @@ public class Engineblock {
 		super();
 	}
 
+	// Method start engines
 	public void startEngines() {
 		motorA = new UnregulatedMotor(MotorPort.A);
 		motorB = new UnregulatedMotor(MotorPort.B);
@@ -25,6 +26,7 @@ public class Engineblock {
 		ir = new EV3IRSensor(SensorPort.S3);
 	}
 
+	// Getters
 	public UnregulatedMotor getMotorA() {
 		return motorA;
 	}
@@ -45,6 +47,7 @@ public class Engineblock {
 		return ir;
 	}
 
+	// Method close engines
 	public void closeEngines() {
 		motorA.close();
 		motorB.close();
@@ -53,8 +56,4 @@ public class Engineblock {
 		ir.close();
 	}
 	
-	
-	
-	
-
 }
