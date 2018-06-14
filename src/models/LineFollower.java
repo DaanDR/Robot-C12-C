@@ -7,17 +7,17 @@ import lejos.hardware.Button;
 public class LineFollower extends Trick {
 
 	// Attributes
-	float colorValue; // Used to store red-value during while-loop
+	private float colorValue; // Used to store red-value during while-loop
 
 	// create variables for max/min speeds
-	static final int MAX_SPEED = 50;
-	static final int MED_SPEED = 30;
-	static final int MIN_SPEED = 10;
+	private static final int MAX_SPEED = 50;
+	private static final int MED_SPEED = 30;
+	private static final int MIN_SPEED = 10;
 
 	// create variables for using the red sensor on black/white
-	static final float BLACK = 0.1f;
-	static final float WHITE = 0.70f;
-	static final float BLACK_WHITE = 0.45f;
+	private static final float BLACK = 0.1f;
+	private static final float WHITE = 0.70f;
+	private static final float BLACK_WHITE = 0.45f;
 
 	// Constructor
 	public LineFollower(Engineblock engineBlock) {
