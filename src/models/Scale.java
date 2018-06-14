@@ -1,6 +1,7 @@
 package models;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class Scale {
 
@@ -9,6 +10,8 @@ public class Scale {
 	private final static int PENTASCALE_LENGTH = 5;
 	private final static int SEVENNATIONSCALE_LENGTH = 5;
 	private int[] selectedScaleNotes;
+	private final static HashMap<String, int[]> SCALES = new HashMap<String, int[]>();
+	
 
 	// Tones
 	private final static int A = 440;
@@ -34,6 +37,7 @@ public class Scale {
 	private final static int[] G_SCALE = { G, A, B, C, D, E, F_SHARP };
 	private final static int[] A_SCALE = { A, B, C_SHARP, D, E, F_SHARP, G_SHARP };
 	private final static int[] B_SCALE = { B, C_SHARP, D_SHARP, E, F_SHARP, G_SHARP, A_SHARP };
+	
 
 	// Pentatonic scales
 	private final static int[] A_PENTASCALE = { A, C, D, E, G };
@@ -51,6 +55,7 @@ public class Scale {
 	// Constructor: fill 'selectedScaleNotes' with tones of given scale
 	public Scale(String selectedScale) {
 		super();
+		this.scaleIntoHashMap();
 		this.selectedScale = selectedScale;
 		this.selectScale();
 	}
@@ -60,6 +65,26 @@ public class Scale {
 		this("c");
 
 	}
+	
+	private void scaleIntoHashMap() {
+		SCALES.put("c", C_SCALE);
+		SCALES.put("d", D_SCALE);
+		SCALES.put("e", E_SCALE);
+		SCALES.put("f", F_SCALE);
+		SCALES.put("g", G_SCALE);
+		SCALES.put("a", A_SCALE);
+		SCALES.put("b", B_SCALE);
+		
+		SCALES.put("pc", C_PENTASCALE);
+		SCALES.put("pd", D_PENTASCALE);
+		SCALES.put("pe", E_PENTASCALE);
+		SCALES.put("pf", F_PENTASCALE);
+		SCALES.put("pg", G_PENTASCALE);
+		SCALES.put("pa", A_PENTASCALE);
+		SCALES.put("pb", B_PENTASCALE);
+		
+		SCALES.put("sevennation", SEVENNATIONSCALE);
+	}
 
 	// get selectedScaleNotes
 	public int getSelectedScaleNote(int note) {
@@ -68,55 +93,6 @@ public class Scale {
 
 	// Methode: copy chosen scale to 'selectedScaleNotes'
 	private void selectScale() {
-
-		switch (this.selectedScale) {
-		case "a":
-			selectedScaleNotes = Arrays.copyOf(A_SCALE, SCALE_LENGTH);
-			break;
-		case "b":
-			selectedScaleNotes = Arrays.copyOf(B_SCALE, SCALE_LENGTH);
-			break;
-		case "c":
-			selectedScaleNotes = Arrays.copyOf(C_SCALE, SCALE_LENGTH);
-			break;
-		case "d":
-			selectedScaleNotes = Arrays.copyOf(D_SCALE, SCALE_LENGTH);
-			break;
-		case "e":
-			selectedScaleNotes = Arrays.copyOf(E_SCALE, SCALE_LENGTH);
-			break;
-		case "f":
-			selectedScaleNotes = Arrays.copyOf(F_SCALE, SCALE_LENGTH);
-			break;
-		case "g":
-			selectedScaleNotes = Arrays.copyOf(G_SCALE, SCALE_LENGTH);
-			break;
-		case "ap":
-			selectedScaleNotes = Arrays.copyOf(A_PENTASCALE, PENTASCALE_LENGTH);
-			break;
-		case "bp":
-			selectedScaleNotes = Arrays.copyOf(B_PENTASCALE, PENTASCALE_LENGTH);
-			break;
-		case "cp":
-			selectedScaleNotes = Arrays.copyOf(C_PENTASCALE, PENTASCALE_LENGTH);
-			break;
-		case "dp":
-			selectedScaleNotes = Arrays.copyOf(D_PENTASCALE, PENTASCALE_LENGTH);
-			break;
-		case "ep":
-			selectedScaleNotes = Arrays.copyOf(E_PENTASCALE, PENTASCALE_LENGTH);
-			break;
-		case "fp":
-			selectedScaleNotes = Arrays.copyOf(F_PENTASCALE, PENTASCALE_LENGTH);
-			break;
-		case "gp":
-			selectedScaleNotes = Arrays.copyOf(G_PENTASCALE, PENTASCALE_LENGTH);
-			break;
-		case "sevennation":
-			selectedScaleNotes = Arrays.copyOf(SEVENNATIONSCALE, SEVENNATIONSCALE_LENGTH);
-			break;
-		default:
-			selectedScaleNotes = Arrays.copyOf(C_SCALE, SCALE_LENGTH);
-		}
+		selectedScaleNotes = SCALES.get(selectedScale);	
 	}
 }
