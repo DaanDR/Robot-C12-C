@@ -7,11 +7,11 @@ import lejos.hardware.sensor.EV3IRSensor;
 
 public class Engineblock {
 
-	UnregulatedMotor motorA; // motor for driving
-	UnregulatedMotor motorB; // motor for driving
-	UnregulatedMotor motorC; // motor for arms
-	ColorSensor color; // color sensor
-	EV3IRSensor ir; // infrared sensor
+	private UnregulatedMotor motorA; // motor for driving
+	private UnregulatedMotor motorB; // motor for driving
+	private UnregulatedMotor motorC; // motor for arms
+	private ColorSensor color; // color sensor
+	private EV3IRSensor ir; // infrared sensor
 	
 	public Engineblock() {
 		super();
