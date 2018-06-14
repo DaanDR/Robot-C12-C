@@ -9,8 +9,8 @@ import lejos.utility.Delay;
 
 public class Follow extends Trick {
 
-	SensorMode seek = ir.getSeekMode(); // Make the ir sensor seek
-	float[] sample = new float[seek.sampleSize()]; // create float[] to store beacon coordinates in sample
+	private SensorMode seek = ir.getSeekMode(); // Make the ir sensor seek
+	private float[] sample = new float[seek.sampleSize()]; // create float[] to store beacon coordinates in sample
 
 	// Constructor
 	public Follow(Engineblock engineblock) {
