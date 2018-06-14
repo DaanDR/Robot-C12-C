@@ -9,12 +9,14 @@ import lejos.utility.Delay;
 
 public class Follow extends Trick {
 
-	private SensorMode seek = ir.getSeekMode(); // Make the ir sensor seek
-	private float[] sample = new float[seek.sampleSize()]; // create float[] to store beacon coordinates in sample
+	private SensorMode seek; // Make the ir sensor seek
+	private float[] sample; // create float[] to store beacon coordinates in sample
 
 	// Constructor
 	public Follow(Engineblock engineblock) {
 		super(engineblock);
+		this.seek = ir.getSeekMode();
+		this.sample = new float[seek.sampleSize()]; 
 	}
 
 	/**
@@ -80,7 +82,7 @@ public class Follow extends Trick {
 	}
 
 	// Method do victory dance
-	public void victoryDance() {
+	private void victoryDance() {
 		Delay.msDelay(1000);
 		Button.LEDPattern(7); // fast flash green led
 		motorA.setPower(80);
@@ -97,7 +99,7 @@ public class Follow extends Trick {
 	}
 
 	// Method with victory music
-	public void victoryMusic() {
+	private void victoryMusic() {
 		// wave arm once
 		motorC.setPower(70);
 		Delay.msDelay(500);
@@ -121,7 +123,7 @@ public class Follow extends Trick {
 		Delay.msDelay(100);
 
 		Sound.playTone(988, 800);
-		Delay.msDelay(2000);
+		Delay.msDelay(5000);
 	}
 
 }

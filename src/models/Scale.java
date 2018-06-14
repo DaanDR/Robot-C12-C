@@ -62,8 +62,8 @@ public class Scale {
 	}
 
 	// get selectedScaleNotes
-	public int[] getSelectedScaleNotes() {
-		return selectedScaleNotes;
+	public int getSelectedScaleNote(int note) {
+		return selectedScaleNotes[note % selectedScaleNotes.length];
 	}
 
 	// Methode: copy chosen scale to 'selectedScaleNotes'

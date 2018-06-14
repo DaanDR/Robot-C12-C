@@ -47,19 +47,19 @@ public class DriveWithMusic extends Trick {
 			// play tone for each color
 			switch (kleur) {
 			case "Blue":
-				Sound.playTone(toonladder.getSelectedScaleNotes()[0], TONE_DURATION, TONE_VOLUME);
+				Sound.playTone(toonladder.getSelectedScaleNote(0), TONE_DURATION, TONE_VOLUME);
 				break;
 			case "Green":
-				Sound.playTone(toonladder.getSelectedScaleNotes()[1], TONE_DURATION, TONE_VOLUME);
+				Sound.playTone(toonladder.getSelectedScaleNote(1), TONE_DURATION, TONE_VOLUME);
 				break;
 			case "Black":
-				Sound.playTone(toonladder.getSelectedScaleNotes()[2], TONE_DURATION, TONE_VOLUME);
+				Sound.playTone(toonladder.getSelectedScaleNote(2), TONE_DURATION, TONE_VOLUME);
 				break;
 			case "Red":
-				Sound.playTone(toonladder.getSelectedScaleNotes()[3], TONE_DURATION, TONE_VOLUME);
+				Sound.playTone(toonladder.getSelectedScaleNote(3), TONE_DURATION, TONE_VOLUME);
 				break;
 			case "White":
-				Sound.playTone(toonladder.getSelectedScaleNotes()[4], TONE_DURATION, TONE_VOLUME);
+				Sound.playTone(toonladder.getSelectedScaleNote(4), TONE_DURATION, TONE_VOLUME);
 				break;
 			}
 		}
