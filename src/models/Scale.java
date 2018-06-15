@@ -6,9 +6,6 @@ import java.util.HashMap;
 public class Scale {
 
 	private String selectedScale;
-	private final static int SCALE_LENGTH = 7;
-	private final static int PENTASCALE_LENGTH = 5;
-	private final static int SEVENNATIONSCALE_LENGTH = 5;
 	private int[] selectedScaleNotes;
 	private final static HashMap<String, int[]> SCALES = new HashMap<String, int[]>();
 	
