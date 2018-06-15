@@ -96,10 +96,4 @@ public abstract class Trick {
 	 * Move arms methods using one motor (C) attached to the arms
 	 * Pos/neg irrelevant, arms move relative to current position
 	 */
-
-	// Move arms
-	protected void moveArms(int strength) {
-		motorC.setPower(strength);
-	}
-
 }

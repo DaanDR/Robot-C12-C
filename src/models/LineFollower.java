@@ -20,8 +20,8 @@ public class LineFollower extends Trick {
 	private static final float BLACK_WHITE = 0.45f;
 
 	// Constructor
-	public LineFollower(Engineblock engineBlock) {
-		super(engineBlock);
+	public LineFollower(Engineblock engineblock) {
+		super(engineblock);
 	}
 
 	/**
@@ -37,8 +37,7 @@ public class LineFollower extends Trick {
 		// Set motors and sensor
 		setColorSensorRed(); // set color sensor to the right mode incl floodlight
 		startDriving();
-		moveArms(60); // move arms
-
+		
 		// Keep driving and following line until [Escape] is pressed
 		while (Button.ESCAPE.isUp()) {
 			colorValue = color.getRed();

@@ -11,12 +11,16 @@ public class Follow extends Trick {
 
 	private SensorMode seek; // Make the ir sensor seek
 	private float[] sample; // create float[] to store beacon coordinates in sample
+	private int victory; // counter until robot has won
+	private final static int MAX_HITS = 5; // Number of hits needed for robot to win
+	private final static int START_OVER = 0; // Number of hits remaining when starting over
 
 	// Constructor
 	public Follow(Engineblock engineblock) {
 		super(engineblock);
 		this.seek = ir.getSeekMode();
-		this.sample = new float[seek.sampleSize()]; 
+		this.sample = new float[seek.sampleSize()];
+		this.victory = 0;
 	}
 
 	/**
@@ -30,9 +34,7 @@ public class Follow extends Trick {
 
 		Lcd.print(1, "Monster Slayer");
 		
-		int victory = 0; // counter until robot has won
-		final int MAX_HITS = 5; // Number of hits needed for robot to win
-		final int START_OVER = 0; // Number of hits remaining when starting over
+		
 
 		while (Button.ESCAPE.isUp() && victory < MAX_HITS) {
 			Lcd.clear(4);

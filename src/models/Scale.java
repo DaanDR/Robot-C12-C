@@ -1,6 +1,5 @@
 package models;
 
-import java.util.Arrays;
 import java.util.HashMap;
 
 public class Scale {
@@ -63,6 +62,7 @@ public class Scale {
 
 	}
 	
+	// Put all the scales into a hashmap.
 	private void scaleIntoHashMap() {
 		SCALES.put("c", C_SCALE);
 		SCALES.put("d", D_SCALE);
